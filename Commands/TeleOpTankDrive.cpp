@@ -21,7 +21,9 @@ void TeleOpTankDrive::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void TeleOpTankDrive::Execute() {
-	
+	Joystick *left_diver_joystick = Robot::oi->getLeftDriveJoystick();
+	Joystick *right_diver_joystick = Robot::oi->getRightDriveJoystick();
+	Robot::theDriveTrain->runTankDrive(left_diver_joystick->GetY(), right_diver_joystick->GetY());
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TeleOpTankDrive::IsFinished() {
@@ -34,4 +36,5 @@ void TeleOpTankDrive::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void TeleOpTankDrive::Interrupted() {
+	Robot::theDriveTrain->runTankDrive(0.0, 0.0);
 }
