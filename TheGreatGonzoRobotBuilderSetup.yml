@@ -7,10 +7,10 @@ Children:
 - Name: Subsystems
   Base: Subsystems
   Children:
-  - Name: DriveTrain
+  - Name: TheDriveTrain
     Base: Subsystem
     Children:
-    - Name: Robot Drive Controller
+    - Name: RobotDriveController
       Base: Robot Drive 4
       Children:
       - Name: LeftDriveMotorOne
@@ -115,7 +115,7 @@ Children:
           name: Right Front Motor
           type: PIDOutput
           validators: [RobotDrive4, ChildDropdownSelected]
-          value: DriveTrain RightDriveMotorOne
+          value: TheDriveTrain RightDriveMotorOne
         Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Maximum Output, validators: null, value: 1.0}
         Right Rear Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {
@@ -127,19 +127,19 @@ Children:
           name: Right Rear Motor
           type: PIDOutput
           validators: [RobotDrive4, ChildDropdownSelected]
-          value: DriveTrain RightDriveMotorTwo
+          value: TheDriveTrain RightDriveMotorTwo
         Left Rear Motor: !!robotbuilder.data.properties.ChildSelectionProperty
           default: 1
           name: Left Rear Motor
           type: PIDOutput
           validators: [RobotDrive4, ChildDropdownSelected]
-          value: DriveTrain LeftDriveMotorTwo
+          value: TheDriveTrain LeftDriveMotorTwo
         Left Front Motor: !!robotbuilder.data.properties.ChildSelectionProperty
           default: 0
           name: Left Front Motor
           type: PIDOutput
           validators: [RobotDrive4, ChildDropdownSelected]
-          value: DriveTrain LeftDriveMotorOne
+          value: TheDriveTrain LeftDriveMotorOne
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
           name: Safety Expiration Time, validators: null, value: 0.1}
     - Name: LeftDriveEncoder
@@ -234,8 +234,8 @@ Children:
           name: Reverse Direction, validators: null, value: true}
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: TankDrive}
-  - Name: Thrower
+        name: Default Command, type: Command, validators: null, value: TeleOpTankDrive}
+  - Name: ThrowerArm
     Base: Subsystem
     Children:
     - Name: ThrowerMotorOne
@@ -600,30 +600,6 @@ Children:
           name: When to Run
           validators: null
           value: whileHeld
-    - Name: ArmControllerJoystickButton11
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id020
-          value: ThrowerOverride
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
-          default: '1'
-          name: Button
-          validators: null
-          value: '11'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ArmControllerJoystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id023
@@ -640,7 +616,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+        name: Requires, type: Subsystem, validators: null, value: TheDriveTrain}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: PrecisionDriveSpeed
@@ -648,7 +624,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+        name: Requires, type: Subsystem, validators: null, value: TheDriveTrain}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: ThrowBall
@@ -656,7 +632,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Thrower}
+        name: Requires, type: Subsystem, validators: null, value: ThrowerArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: RetractThrower
@@ -664,7 +640,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Thrower}
+        name: Requires, type: Subsystem, validators: null, value: ThrowerArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: RollerOut
@@ -688,7 +664,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Thrower}
+        name: Requires, type: Subsystem, validators: null, value: ThrowerArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: ExtendIntakeArm
@@ -707,12 +683,12 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: IntakeArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: TankDrive
+  - Name: TeleOpTankDrive
     Base: Command
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+        name: Requires, type: Subsystem, validators: null, value: TheDriveTrain}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   Properties: {}
