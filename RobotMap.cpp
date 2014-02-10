@@ -72,7 +72,7 @@ void RobotMap::init() {
 	throwerThrowerMotorThree = new Talon(1, 7);
 	lw->AddActuator("Thrower", "ThrowerMotorThree", (Talon*) throwerThrowerMotorThree);
 	
-	throwerThrowerPotentiometer = new AnalogChannel(1, 5);
+	throwerThrowerPotentiometer = new AnalogChannel(1, 1);
 	lw->AddSensor("Thrower", "ThrowerPotentiometer", throwerThrowerPotentiometer);
 	
 	intakeArmIntakeArmMotorOne = new Talon(1, 8);
