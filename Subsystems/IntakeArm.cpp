@@ -27,3 +27,13 @@ void IntakeArm::InitDefaultCommand() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+//
+// Extend Intake Arm
+void IntakeArm::controlIntakeArm(double speedValue) {
+	intakeArmMotorOne->Set(speedValue);
+	intakeArmMotorTwo->Set(speedValue);
+}
+//
+// Roller Motor In
+//
+// Roller Motor Out
