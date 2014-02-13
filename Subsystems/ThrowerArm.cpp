@@ -26,3 +26,32 @@ void ThrowerArm::InitDefaultCommand() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+//
+// @note The use of indicator switches or a potentiometer could help here
+//
+// Extend Thrower Arm
+// Used to launch the ball
+// @param power double
+// @param delay double
+void ThrowerArm::extendThrowerArm(double power, double delay){
+	throwerMotorOne->Set(power);
+	throwerMotorTwo->Set(power);
+	throwerMotorTwo->Set(power);
+	Wait(delay);
+	throwerMotorOne->Set(0.0);
+	throwerMotorTwo->Set(0.0);
+	throwerMotorThree->Set(0.0);
+}
+// Retract Thrower Arm
+// Used to retract the thrower after launch
+// @param power double
+// @param delay double
+void ThrowerArm::retractThrowerArm(double power, double delay){
+	throwerMotorOne->Set(-power);
+	throwerMotorTwo->Set(-power);
+	throwerMotorThree->Set(-power);
+	Wait(delay);
+	throwerMotorOne->Set(0.0);
+	throwerMotorTwo->Set(0.0);
+	throwerMotorThree->Set(0.0);
+}

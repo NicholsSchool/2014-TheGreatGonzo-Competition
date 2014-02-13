@@ -9,20 +9,26 @@
 // it from being updated in th future.
 
 
-
 #ifndef THROWBALL_H
 #define THROWBALL_H
 
-#include "Commands/CommandGroup.h"
+
+#include "Commands/Subsystem.h"
+#include "../Robot.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class ThrowBall: public CommandGroup {
-public:	
+class ThrowBall: public Command {
+public:
 	ThrowBall();
+	virtual void Initialize();
+	virtual void Execute();
+	virtual bool IsFinished();
+	virtual void End();
+	virtual void Interrupted();
 };
 
 #endif
