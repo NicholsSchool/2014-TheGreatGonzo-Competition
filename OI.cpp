@@ -32,6 +32,8 @@ OI::OI() {
 	armControllerJoystickButton3->WhileHeld(new RollerOut());
 	armControllerJoystickButton2 = new JoystickButton(armControllerJoystick, 2);
 	armControllerJoystickButton2->WhileHeld(new RollerIn());
+	armControllerJoystickTriggerRelease = new JoystickButton(armControllerJoystick, 1);
+	armControllerJoystickTriggerRelease->WhenReleased(new RetractThrower());
 	armControllerJoystickTrigger = new JoystickButton(armControllerJoystick, 1);
 	armControllerJoystickTrigger->WhenPressed(new ThrowBall());
 	rightDriveJoystick = new Joystick(2);
