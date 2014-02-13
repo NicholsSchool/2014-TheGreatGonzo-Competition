@@ -12,9 +12,6 @@
 #include "SmartDashboard/SmartDashboard.h"
 #include "Commands/AutonomousSequence.h"
 #include "Commands/ExtendIntakeArm.h"
-#include "Commands/LauncherOne.h"
-#include "Commands/LauncherThree.h"
-#include "Commands/LauncherTwo.h"
 #include "Commands/PrecisionDriveSpeed.h"
 #include "Commands/RetractIntakeArm.h"
 #include "Commands/RetractThrower.h"
@@ -39,6 +36,8 @@ OI::OI() {
 	armControllerJoystickTrigger->WhenPressed(new ThrowBall());
 	rightDriveJoystick = new Joystick(2);
 	
+	rightDriveJoystickTriggerRelease = new JoystickButton(rightDriveJoystick, 1);
+	rightDriveJoystickTriggerRelease->WhenReleased(new RetractThrower());
 	rightDriveJoystickTrigger = new JoystickButton(rightDriveJoystick, 1);
 	rightDriveJoystickTrigger->WhenPressed(new ThrowBall());
 	leftDriveJoystick = new Joystick(1);

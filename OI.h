@@ -19,6 +19,7 @@ private:
 	JoystickButton* armControllerJoystickButton2;
 	JoystickButton* armControllerJoystickTrigger;
 	Joystick* rightDriveJoystick;
+	JoystickButton* rightDriveJoystickTriggerRelease;
 	JoystickButton* rightDriveJoystickTrigger;
 	Joystick* leftDriveJoystick;
 	JoystickButton* leftDriveJoystickTrigger;
