@@ -36,7 +36,7 @@ void ThrowerArm::InitDefaultCommand() {
 void ThrowerArm::extendThrowerArm(double power, double delay){
 	throwerMotorOne->Set(power);
 	throwerMotorTwo->Set(power);
-	throwerMotorTwo->Set(power);
+	throwerMotorThree->Set(power);
 	Wait(delay);
 	throwerMotorOne->Set(0.0);
 	throwerMotorTwo->Set(0.0);
