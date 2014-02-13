@@ -35,5 +35,16 @@ void IntakeArm::controlIntakeArm(double speedValue) {
 }
 //
 // Roller Motor In
+void IntakeArm::rollerMotorIn(double speedValue) {
+	rollerMotor->Set(speedValue);
+}
 //
 // Roller Motor Out
+void IntakeArm::rollerMotorOut(double speedValue) {
+	rollerMotor->Set(speedValue);
+}
+//
+// Stop Roller Motor
+void IntakeArm::stopRollerMotor() {
+	rollerMotor->Set(0.0);
+}

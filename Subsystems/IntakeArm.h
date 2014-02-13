@@ -31,5 +31,8 @@ public:
 	IntakeArm();
 	void InitDefaultCommand();
 	void controlIntakeArm(double);
+	void rollerMotorIn(double);
+	void rollerMotorOut(double);
+	void stopRollerMotor();
 };
 #endif
