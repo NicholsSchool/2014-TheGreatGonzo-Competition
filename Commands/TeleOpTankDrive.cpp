@@ -42,4 +42,5 @@ void TeleOpTankDrive::End() {
 // subsystems is scheduled to run
 void TeleOpTankDrive::Interrupted() {
 	Robot::theDriveTrain->runTankDrive(0.0, 0.0);
+	Robot::intakeArm->controlIntakeArm(0.0);
 }
