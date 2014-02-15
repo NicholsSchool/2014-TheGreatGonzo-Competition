@@ -30,8 +30,6 @@ OI::OI() {
 	armControllerJoystickTrigger->WhenPressed(new ThrowBall());
 	rightDriveJoystick = new Joystick(2);
 	
-	rightDriveJoystickTrigger = new JoystickButton(rightDriveJoystick, 1);
-	rightDriveJoystickTrigger->WhenPressed(new ThrowBall());
 	leftDriveJoystick = new Joystick(1);
 	
      
