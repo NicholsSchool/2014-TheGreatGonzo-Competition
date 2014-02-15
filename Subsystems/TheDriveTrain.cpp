@@ -34,3 +34,6 @@ void TheDriveTrain::InitDefaultCommand() {
 void TheDriveTrain::runTankDrive(double leftValue, double rightValue) {
 	robotDriveController->TankDrive(leftValue, rightValue);
 }
+void TheDriveTrain::stopTankDrive() {
+	robotDriveController->TankDrive(0.0, 0.0);
+}

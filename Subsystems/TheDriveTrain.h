@@ -33,5 +33,6 @@ public:
 	TheDriveTrain();
 	void InitDefaultCommand();
 	void runTankDrive(double, double);
+	void stopTankDrive();
 };
 #endif
