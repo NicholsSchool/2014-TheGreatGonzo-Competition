@@ -21,6 +21,7 @@ void RollerIn::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void RollerIn::Execute() {
+	// This method is called when button 2 is pushed on the intake arm joystick.
 	Robot::intakeArm->rollerMotorIn(1.0);
 }
 // Make this return true when this Command no longer needs to run execute()
@@ -29,10 +30,12 @@ bool RollerIn::IsFinished() {
 }
 // Called once after isFinished returns true
 void RollerIn::End() {
-	
+	// This may never fire. But good practice to stop motor here.
+	Robot::intakeArm->rollerMotorStop();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RollerIn::Interrupted() {
+	// Stop the roller motor when this method is called.
 	Robot::intakeArm->rollerMotorStop();
 }
