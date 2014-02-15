@@ -29,10 +29,10 @@ bool RollerOut::IsFinished() {
 }
 // Called once after isFinished returns true
 void RollerOut::End() {
-	Robot::intakeArm->stopRollerMotor();
+	Robot::intakeArm->rollerMotorStop();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RollerOut::Interrupted() {
-	Robot::intakeArm->stopRollerMotor();
+	Robot::intakeArm->rollerMotorStop();
 }
