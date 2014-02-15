@@ -31,9 +31,19 @@ void TheDriveTrain::InitDefaultCommand() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+//
+// Run Tank Drive
+// This method makes the robot drivalbe via tank drive during the teleop period.
+// @example Robot::theDriveTrain->runTankDrive(1.0, 1.0);
+// @param leftValue double
+// @param rightValue double
 void TheDriveTrain::runTankDrive(double leftValue, double rightValue) {
 	robotDriveController->TankDrive(leftValue, rightValue);
 }
+//
+// Stop Tank Drive
+// This method makes the robot come to a full stop.
+// @example Robot::theDriveTrain->stopTankDrive();
 void TheDriveTrain::stopTankDrive() {
 	robotDriveController->TankDrive(0.0, 0.0);
 }
