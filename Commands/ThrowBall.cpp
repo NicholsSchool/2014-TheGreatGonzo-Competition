@@ -22,7 +22,9 @@ void ThrowBall::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ThrowBall::Execute() {
 	// throw the ball at 1/2 power for one tenth of a second
-	Robot::throwerArm->extendThrowerArm(0.5, 0.1);
+	if(Robot::intakeArm->isFullyExtendedForward()){
+		Robot::throwerArm->launchBallBasedOnTiming(0.85, 0.33);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ThrowBall::IsFinished() {

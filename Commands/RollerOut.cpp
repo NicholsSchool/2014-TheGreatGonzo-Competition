@@ -21,6 +21,7 @@ void RollerOut::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void RollerOut::Execute() {
+	// This method is called when button 3 is pushed on the intake arm joystick.
 	Robot::intakeArm->rollerMotorOut(1.0);
 }
 // Make this return true when this Command no longer needs to run execute()
@@ -29,10 +30,12 @@ bool RollerOut::IsFinished() {
 }
 // Called once after isFinished returns true
 void RollerOut::End() {
+	// This may never fire. But good practice to stop motor here.
 	Robot::intakeArm->rollerMotorStop();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RollerOut::Interrupted() {
+	// Stop the roller motor when this method is called.
 	Robot::intakeArm->rollerMotorStop();
 }
