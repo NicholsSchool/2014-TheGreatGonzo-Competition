@@ -41,7 +41,7 @@ void ThrowBall::Execute() {
 		if(ThrowBall::readyToShoot){
 			if(Robot::intakeArm->isFullyExtendedForward()){
 				if(ThrowBall::reachedTop){
-					Robot::throwerArm->moveMotorsForward(0.20);
+					Robot::throwerArm->moveMotorsForward(0.4);
 				} else {
 					Robot::throwerArm->moveMotorsForward(0.90);
 				}
