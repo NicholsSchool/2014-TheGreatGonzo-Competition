@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef THROWBALL_H
-#define THROWBALL_H
+#ifndef CYCLETHROWERMOTORS_H
+#define CYCLETHROWERMOTORS_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,13 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class ThrowBall: public Command {
+class CycleThrowerMotors: public Command {
 public:
-	ThrowBall();
-	bool readyToShoot;
-	bool reachedTop;
-	bool reachedBottom;
-	bool finishedCycle;
+	CycleThrowerMotors();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

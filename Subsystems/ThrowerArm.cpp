@@ -35,13 +35,9 @@ void ThrowerArm::InitDefaultCommand() {
 // @param power double
 // @param delay double
 void ThrowerArm::launchBallBasedOnTiming(double power, double delay){
-	throwerMotorOne->Set(power);
-	throwerMotorTwo->Set(power);
-	throwerMotorThree->Set(power);
+	this->moveMotorsForward(power);
 	Wait(delay);
-	throwerMotorOne->Set(0.0);
-	throwerMotorTwo->Set(0.0);
-	throwerMotorThree->Set(0.0);
+	this->stopThrowerMotors();
 }
 //
 // Move Motors Forward
@@ -63,6 +59,15 @@ void ThrowerArm::moveMotorsInReverse(double power){
 	throwerMotorOne->Set(-power);
 	throwerMotorTwo->Set(-power);
 	throwerMotorThree->Set(-power);
+}
+//
+// Stop Thrower Motors
+// This method stops all thrower motors.
+// @example Robot::throwerArm->stopThrowerMotors();
+void ThrowerArm::stopThrowerMotors(){
+	throwerMotorOne->Set(0.0);
+	throwerMotorTwo->Set(0.0);
+	throwerMotorThree->Set(0.0);
 }
 //
 // Is Fully Extended Up

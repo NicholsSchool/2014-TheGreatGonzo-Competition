@@ -24,11 +24,10 @@ void IntakeArmController::Execute() {
 	
 	// instantiate and assign arm controller joystick value
 	Joystick *arm_control_joystick = Robot::oi->getArmControllerJoystick();
-
+	
 	// add if/else conditions to the dashboard
-	SmartDashboard::PutNumber( "Intake Arm: Joystick Value", arm_control_joystick->GetY() );
-	SmartDashboard::PutBoolean( "Intake Arm: Fully Extended", Robot::intakeArm->isFullyExtendedForward() );
-	SmartDashboard::PutBoolean( "Intake Arm: Fully Retracted", Robot::intakeArm->isFullyRetractedBack() );
+	SmartDashboard::PutBoolean( "Intake Arm: SafeToShoot", Robot::intakeArm->isFullyExtendedForward() );
+	SmartDashboard::PutBoolean( "Intake Arm: FullyRetracted", Robot::intakeArm->isFullyRetractedBack() );
 	
 	// If neither extreme is reached, simply power the winch motor.
 	if(Robot::intakeArm->isFullyRetractedBack() == false && Robot::intakeArm->isFullyExtendedForward() == false){

@@ -33,6 +33,7 @@ public:
 	void launchBallBasedOnTiming(double, double);
 	void moveMotorsForward(double);
 	void moveMotorsInReverse(double);
+	void stopThrowerMotors();
 	bool isFullyExtendedUp();
 	bool isFullyRetractedDown();
 };
