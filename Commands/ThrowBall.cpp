@@ -36,24 +36,25 @@ void ThrowBall::Execute() {
 		SmartDashboard::PutBoolean( "Thrower Arm Variable: reachedBottom", ThrowBall::reachedBottom );
 		SmartDashboard::PutBoolean( "Thrower Arm Variable: finishedCycle", ThrowBall::finishedCycle );
 		
-		// power motor algorithm
+		// power the motor when intake arm is fully extended
+		if(Robot::throwerArm->isFullyExtendedUp()){
+			ThrowBall::reachedTop = true;
+		}
+		if(ThrowBall::readyToShoot){
+			if(Robot::intakeArm->isFullyExtendedForward()){
+				if(ThrowBall::reachedTop){
+					Robot::throwerArm->moveMotorsForward(0.25);
+				} else {
+					Robot::throwerArm->moveMotorsForward(0.85);
+				}
+			}
+		}
 		if(Robot::throwerArm->isFullyRetractedDown()){
 			ThrowBall::readyToShoot = true;
 			if(ThrowBall::reachedTop == true){
 				ThrowBall::finishedCycle = true;
 			}
 		}
-		if(ThrowBall::finishedCycle == false){
-			if(ThrowBall::readyToShoot){
-				if(Robot::intakeArm->isFullyExtendedForward()){
-					Robot::throwerArm->moveMotorsForward(0.9);
-				}
-			}
-		}
-		if(Robot::throwerArm->isFullyExtendedUp()){
-			ThrowBall::reachedTop = true;
-		}
-
 	
 	}
 	

@@ -21,7 +21,7 @@ void CycleThrowerMotors::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CycleThrowerMotors::Execute() {
-	Robot::throwerArm->moveMotorsForward(0.33);
+	Robot::throwerArm->moveMotorsForward(0.40);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CycleThrowerMotors::IsFinished() {
