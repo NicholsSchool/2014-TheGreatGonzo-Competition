@@ -505,7 +505,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
     - Name: ArmControllerJoystickButton2
       Base: Joystick Button
       Children: []

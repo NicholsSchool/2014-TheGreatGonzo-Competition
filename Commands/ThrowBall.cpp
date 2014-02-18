@@ -24,62 +24,59 @@ ThrowBall::ThrowBall() {
 }
 // Called just before this Command runs the first time.
 void ThrowBall::Initialize() {
-	ThrowBall::readyToShoot = false;
-	ThrowBall::reachedTop = false;
-	ThrowBall::reachedBottom = false;
-	ThrowBall::finishedCycle = false;
 }
 // Called repeatedly when this Command is scheduled to run.
 void ThrowBall::Execute() {
 	
-	// add if/else conditions to the dashboard
-	SmartDashboard::PutBoolean( "Thrower Arm Variable: readyToShoot", ThrowBall::readyToShoot );
-	SmartDashboard::PutBoolean( "Thrower Arm Variable: reachedTop", ThrowBall::reachedTop );
-	SmartDashboard::PutBoolean( "Thrower Arm Variable: reachedBottom", ThrowBall::reachedBottom );
-	SmartDashboard::PutBoolean( "Thrower Arm Variable: finishedCycle", ThrowBall::finishedCycle );
+	// internal while loop to handle
+	while(finishedCycle == false){
 	
-	// power the motor when intake arm is fully extended
-	if(ThrowBall::readyToShoot){
-		if(Robot::intakeArm->isFullyExtendedForward()){
-			if(ThrowBall::reachedTop){
-				Robot::throwerArm->moveMotorsForward(0.20);
-			} else {
-				Robot::throwerArm->moveMotorsForward(0.90);
+		// add if/else conditions to the dashboard
+		SmartDashboard::PutBoolean( "Thrower Arm Variable: readyToShoot", ThrowBall::readyToShoot );
+		SmartDashboard::PutBoolean( "Thrower Arm Variable: reachedTop", ThrowBall::reachedTop );
+		SmartDashboard::PutBoolean( "Thrower Arm Variable: reachedBottom", ThrowBall::reachedBottom );
+		SmartDashboard::PutBoolean( "Thrower Arm Variable: finishedCycle", ThrowBall::finishedCycle );
+		
+		// power motor algorithm
+		if(ThrowBall::readyToShoot){
+			if(Robot::intakeArm->isFullyExtendedForward()){
+				if(ThrowBall::reachedTop){
+					Robot::throwerArm->moveMotorsForward(0.20);
+				} else {
+					Robot::throwerArm->moveMotorsForward(0.90);
+				}
 			}
 		}
-	}
-	if(Robot::throwerArm->isFullyExtendedUp()){
-		ThrowBall::reachedTop = true;
-	}
-	if(Robot::throwerArm->isFullyRetractedDown()){
-		ThrowBall::readyToShoot = true;
-		if(ThrowBall::reachedTop == true){
-			ThrowBall::finishedCycle = true;
+		if(Robot::throwerArm->isFullyExtendedUp()){
+			ThrowBall::reachedTop = true;
 		}
+		if(Robot::throwerArm->isFullyRetractedDown()){
+			ThrowBall::readyToShoot = true;
+			if(ThrowBall::reachedTop == true){
+				ThrowBall::finishedCycle = true;
+			}
+		}
+	
 	}
+	
+	if(finishedCycle){
+		ThrowBall::readyToShoot = true;
+		ThrowBall::reachedTop = false;
+		ThrowBall::reachedBottom = false;
+		ThrowBall::finishedCycle = false;
+	}
+	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ThrowBall::IsFinished() {
-	if(ThrowBall::finishedCycle){
-		return true;
-	} else {
-		return false;
-	}
+	return true;
 }
 // Called once after isFinished returns true
 void ThrowBall::End() {
-	ThrowBall::readyToShoot = false;
-	ThrowBall::reachedTop = false;
-	ThrowBall::reachedBottom = false;
-	ThrowBall::finishedCycle = false;
 	Robot::throwerArm->stopThrowerMotors();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void ThrowBall::Interrupted() {
-	ThrowBall::readyToShoot = false;
-	ThrowBall::reachedTop = false;
-	ThrowBall::reachedBottom = false;
-	ThrowBall::finishedCycle = false;
 	Robot::throwerArm->stopThrowerMotors();
 }
