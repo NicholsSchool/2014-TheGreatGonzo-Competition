@@ -47,3 +47,10 @@ void TheDriveTrain::runTankDrive(double leftValue, double rightValue) {
 void TheDriveTrain::stopTankDrive() {
 	robotDriveController->TankDrive(0.0, 0.0);
 }
+//
+// Set Safety Boolean
+// This method passes the safety boolean variable and sets it
+// @example Robot::theDriveTrain->setSafetyBoolean(true);
+void TheDriveTrain::setSafetyBoolean(bool safetyVal){
+	robotDriveController->SetSafetyEnabled(safetyVal);
+}
