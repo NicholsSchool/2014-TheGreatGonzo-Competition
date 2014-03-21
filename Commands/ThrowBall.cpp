@@ -83,4 +83,3 @@ void ThrowBall::Interrupted() {
 	ThrowBall::finishedCycle = false;
 	Robot::throwerArm->stopThrowerMotors();
 }
-

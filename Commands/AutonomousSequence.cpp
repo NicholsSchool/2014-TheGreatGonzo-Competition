@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "AutonomousSequence.h"
 #include <time.h>
-
 AutonomousSequence::AutonomousSequence() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -68,4 +67,3 @@ void AutonomousSequence::Interrupted() {
 	Robot::throwerArm->stopThrowerMotors();
 	Robot::theDriveTrain->setSafetyBoolean(true);
 }
-
