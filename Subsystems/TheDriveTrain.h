@@ -34,5 +34,6 @@ public:
 	void InitDefaultCommand();
 	void runTankDrive(double, double);
 	void stopTankDrive();
+	void setSafetyBoolean(bool);
 };
 #endif
