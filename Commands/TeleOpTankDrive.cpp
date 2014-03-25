@@ -25,7 +25,7 @@ void TeleOpTankDrive::Execute() {
 	Joystick *left_diver_joystick = Robot::oi->getLeftDriveJoystick();
 	Joystick *right_diver_joystick = Robot::oi->getRightDriveJoystick();
 	// Pass the values for the Y axis on each of the joysticks to the tank drive motors.
-	Robot::theDriveTrain->runTankDrive((left_diver_joystick->GetY() * 0.80), (right_diver_joystick->GetY() * 0.80));
+	Robot::theDriveTrain->runTankDrive((left_diver_joystick->GetY() * 1.0), (right_diver_joystick->GetY() * 1.0));
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TeleOpTankDrive::IsFinished() {
