@@ -44,7 +44,7 @@ void ThrowBall::Execute() {
 			if(ThrowBall::reachedTop){
 				Robot::throwerArm->moveMotorsForward(0.20);
 			} else {
-				Robot::throwerArm->moveMotorsForward(0.80);
+				Robot::throwerArm->moveMotorsForward(0.70);
 			}
 		}
 	}

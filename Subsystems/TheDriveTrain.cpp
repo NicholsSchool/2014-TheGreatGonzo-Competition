@@ -48,6 +48,22 @@ void TheDriveTrain::stopTankDrive() {
 	robotDriveController->TankDrive(0.0, 0.0);
 }
 //
+// Change Gear Up
+void TheDriveTrain::changeGearUp() {
+//	switch(TheDriveTrain::driveGear){
+//		case 1 : glbDriveVariable = 2;
+//		case 2 : glbDriveVariable = 3;
+//	}
+}
+//
+// Change Gear Down
+void TheDriveTrain::changeGearDown() {
+//	switch(TheDriveTrain::driveGear){
+//		case 2 : glbDriveVariable = 1;
+//		case 3 : glbDriveVariable = 2;
+//	}
+}
+//
 // Set Safety Boolean
 // This method passes the safety boolean variable and sets it
 // @example Robot::theDriveTrain->setSafetyBoolean(true);

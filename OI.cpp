@@ -13,6 +13,8 @@
 #include "Commands/AutoThrow.h"
 #include "Commands/AutonomousSequence.h"
 #include "Commands/CycleThrowerMotors.h"
+#include "Commands/GearDown.h"
+#include "Commands/GearUp.h"
 #include "Commands/IntakeArmController.h"
 #include "Commands/RollerIn.h"
 #include "Commands/RollerOut.h"
@@ -36,8 +38,12 @@ OI::OI() {
 	armControllerJoystickTrigger->WhileHeld(new ThrowBall());
 	rightDriveJoystick = new Joystick(2);
 	
+	rightDriveJoystickTrigger = new JoystickButton(rightDriveJoystick, 1);
+	rightDriveJoystickTrigger->WhenReleased(new GearUp());
 	leftDriveJoystick = new Joystick(1);
 	
+	leftDriveJoystickTrigger = new JoystickButton(leftDriveJoystick, 1);
+	leftDriveJoystickTrigger->WhenPressed(new GearDown());
      
         // SmartDashboard Buttons
 	SmartDashboard::PutData("AutonomousSequence", new AutonomousSequence());
