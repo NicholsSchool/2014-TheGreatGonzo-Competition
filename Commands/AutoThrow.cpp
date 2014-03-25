@@ -22,6 +22,13 @@ void AutoThrow::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void AutoThrow::Execute() {
 	
+	// thrower arm throw ball for point eight seconds
+	if(Robot::intakeArm->isFullyExtendedForward()){
+		Robot::throwerArm->moveMotorsForward(0.66);
+		Wait(0.45);
+		Robot::throwerArm->stopThrowerMotors();
+	}
+	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool AutoThrow::IsFinished() {
@@ -29,9 +36,10 @@ bool AutoThrow::IsFinished() {
 }
 // Called once after isFinished returns true
 void AutoThrow::End() {
-	
+	Robot::throwerArm->stopThrowerMotors();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void AutoThrow::Interrupted() {
+	Robot::throwerArm->stopThrowerMotors();
 }
