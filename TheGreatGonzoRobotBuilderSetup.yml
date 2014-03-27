@@ -435,7 +435,7 @@ Children:
   - Name: RollerMotor
     Base: Subsystem
     Children:
-    - Name: RollerMotor
+    - Name: RollerMotorController
       Base: Speed Controller
       Children: []
       Properties:
