@@ -432,10 +432,10 @@ Children:
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
-  - Name: IntakeArmRoller
+  - Name: RollerMotor
     Base: Subsystem
     Children:
-    - Name: RollerMotor
+    - Name: RollerMotorController
       Base: Speed Controller
       Children: []
       Properties:
