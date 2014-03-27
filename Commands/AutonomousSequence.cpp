@@ -32,7 +32,7 @@ void AutonomousSequence::Execute() {
 	Robot::theDriveTrain->stopTankDrive();
 	
 	// roller intake motor out for two seconds
-//	Robot::intakeArm->rollerMotorOut(1.0);
+//	Robot::rollerMotor->rollerMotorOut(1.0);
 //	Wait(2.0);
 //	Robot::intakeArm->rollerMotorStop();
 	
@@ -43,7 +43,7 @@ void AutonomousSequence::Execute() {
 	
 	// thrower arm throw ball for point eight seconds
 	if(Robot::intakeArm->isFullyExtendedForward()){
-		Robot::throwerArm->moveMotorsForward(0.695);
+		Robot::throwerArm->moveMotorsForward(0.7);
 		Wait(0.55);
 		Robot::throwerArm->stopThrowerMotors();
 	}
