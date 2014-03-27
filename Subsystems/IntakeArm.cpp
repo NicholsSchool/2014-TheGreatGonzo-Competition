@@ -46,31 +46,6 @@ void IntakeArm::stopWinchMotor() {
 	intakeArmMotor->Set(0.0);
 }
 //
-// Roller Motor In
-// This method rotates the spinners on the intake arm to receive a ball.
-// This method always assumes a positive value.
-// @example Robot::intakeArm->rollerMotorIn(1.0);
-// @param rotateInSpeed double
-void IntakeArm::rollerMotorIn(double rotateInSpeed) {
-	intakeArmMotor->Set(rotateInSpeed);
-}
-//
-// Roller Motor Out
-// This method rotates the spinners on the intake arm to pass/low-shoot the ball.
-// This method always assumes a positive value.
-// @example Robot::intakeArm->rollerMotorOut(1.0);
-// @param rotateOutSpeed double
-void IntakeArm::rollerMotorOut(double rotateOutSpeed) {
-	intakeArmMotor->Set(-rotateOutSpeed);
-}
-//
-// Stop Roller Motor
-// This method stops the roller motor on the intake arm.
-// @example Robot::intakeArm->rollerMotorStop();
-void IntakeArm::stopRollerMotor() {
-	intakeArmMotor->Set(0.0);
-}
-//
 // Is Fully Retracted Back
 // This method checks the limit switch positioned to determine if thrower arm is retracted.
 // @example Robot::intakeArm->isFullyRetractedBack();
