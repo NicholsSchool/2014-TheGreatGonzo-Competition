@@ -22,10 +22,10 @@ void TeleOpTankDrive::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TeleOpTankDrive::Execute() {
 	// Setup the two driver joysticks.
-//	Joystick *left_diver_joystick = Robot::oi->getLeftDriveJoystick();
-//	Joystick *right_diver_joystick = Robot::oi->getRightDriveJoystick();
+	Joystick *left_diver_joystick = Robot::oi->getLeftDriveJoystick();
+	Joystick *right_diver_joystick = Robot::oi->getRightDriveJoystick();
 	// Pass the values for the Y axis on each of the joysticks to the tank drive motors.
-//	Robot::theDriveTrain->runTankDrive((left_diver_joystick->GetY() * 1.0), (right_diver_joystick->GetY() * 1.0));
+	Robot::theDriveTrain->runTankDrive((left_diver_joystick->GetY() * 1.0), (right_diver_joystick->GetY() * 1.0));
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TeleOpTankDrive::IsFinished() {
@@ -34,7 +34,7 @@ bool TeleOpTankDrive::IsFinished() {
 // Called once after isFinished returns true
 void TeleOpTankDrive::End() {
 	// This may never fire. But good practice to stop motor here.
-	Robot::intakeArm->rollerMotorStop();
+	Robot::theDriveTrain->stopTankDrive();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
