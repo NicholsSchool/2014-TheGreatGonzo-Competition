@@ -178,14 +178,14 @@ Children:
           default: '1'
           name: Channel B Channel (Digital)
           validators: &id013 [DigitalChannel]
-          value: '12'
+          value: '13'
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id014 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
             '12', '13', '14']
           default: '1'
           name: Channel A Channel (Digital)
           validators: &id015 [DigitalChannel]
-          value: '11'
+          value: '12'
         Reverse Direction: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Reverse Direction, validators: null, value: false}
     - Name: RightDriveEncoder
@@ -223,13 +223,13 @@ Children:
           default: '1'
           name: Channel B Channel (Digital)
           validators: *id013
-          value: '14'
+          value: '11'
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: '1'
           name: Channel A Channel (Digital)
           validators: *id015
-          value: '13'
+          value: '10'
         Reverse Direction: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Reverse Direction, validators: null, value: true}
     Properties:
@@ -464,75 +464,6 @@ Children:
 - Name: Operator Interface
   Base: OI
   Children:
-  - Name: LeftDriveJoystick
-    Base: Joystick
-    Children:
-    - Name: LeftDriveJoystickTrigger
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: &id020 [TypeDropdownSelected]
-          value: None
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id021 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
-            '12']
-          default: '1'
-          name: Button
-          validators: null
-          value: '1'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: LeftDriveJoystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id022 [whileHeld, whenPressed, whenReleased]
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
-    Properties:
-      Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: &id023 ['1', '2', '3', '4']
-        default: 1
-        name: Number
-        validators: &id024 [Joystick]
-        value: '1'
-  - Name: RightDriveJoystick
-    Base: Joystick
-    Children:
-    - Name: RightDriveJoystickTrigger
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id020
-          value: None
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
-          default: '1'
-          name: Button
-          validators: null
-          value: '1'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: RightDriveJoystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
-    Properties:
-      Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id023
-        default: 1
-        name: Number
-        validators: *id024
-        value: '2'
   - Name: ArmControllerJoystick
     Base: Joystick
     Children:
@@ -544,10 +475,11 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: &id020 [TypeDropdownSelected]
           value: ThrowBall
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: &id021 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12']
           default: '1'
           name: Button
           validators: null
@@ -555,7 +487,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ArmControllerJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: &id022 [whileHeld, whenPressed, whenReleased]
           default: whileHeld
           name: When to Run
           validators: null
@@ -634,10 +566,10 @@ Children:
           value: whileHeld
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id023
+        choices: ['1', '2', '3', '4']
         default: 1
         name: Number
-        validators: *id024
+        validators: [Joystick]
         value: '3'
   Properties: {}
 - Name: Commands
@@ -656,7 +588,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: IntakeArm}
+        name: Requires, type: Subsystem, validators: null, value: RollerMotor}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: RollerIn
@@ -664,7 +596,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: IntakeArm}
+        name: Requires, type: Subsystem, validators: null, value: RollerMotor}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: TeleOpTankDrive
