@@ -30,7 +30,7 @@ void RollerMotor::InitDefaultCommand() {
 // @example Robot::rollerMotor->rollerMotorIn(1.0);
 // @param rotateInSpeed double
 void RollerMotor::rollerMotorIn(double rotateInSpeed) {
-	rollerMotor->Set(rotateInSpeed);
+	rollerMotorController->Set(rotateInSpeed);
 }
 //
 // Roller Motor Out
@@ -39,12 +39,12 @@ void RollerMotor::rollerMotorIn(double rotateInSpeed) {
 // @example Robot::rollerMotor->rollerMotorOut(1.0);
 // @param rotateOutSpeed double
 void RollerMotor::rollerMotorOut(double rotateOutSpeed) {
-	rollerMotor->Set(-rotateOutSpeed);
+	rollerMotorController->Set(-rotateOutSpeed);
 }
 //
 // Stop Roller Motor
 // This method stops the roller motor on the intake arm.
 // @example Robot::rollerMotor->rollerMotorStop();
 void RollerMotor::stopRollerMotor() {
-	rollerMotor->Set(0.0);
+	rollerMotorController->Set(0.0);
 }
