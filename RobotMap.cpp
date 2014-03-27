@@ -58,12 +58,12 @@ void RobotMap::init() {
 	theDriveTrainLeftDriveEncoder = new Encoder(1, 11, 1, 12, false, Encoder::k4X);
 	lw->AddSensor("TheDriveTrain", "LeftDriveEncoder", theDriveTrainLeftDriveEncoder);
 	theDriveTrainLeftDriveEncoder->SetDistancePerPulse(1.0);
-        theDriveTrainLeftDriveEncoder->SetPIDSourceParameter(Encoder::kRate);
+        theDriveTrainLeftDriveEncoder->SetPIDSourceParameter(Encoder::kDistance);
         theDriveTrainLeftDriveEncoder->Start();
 	theDriveTrainRightDriveEncoder = new Encoder(1, 13, 1, 14, true, Encoder::k4X);
 	lw->AddSensor("TheDriveTrain", "RightDriveEncoder", theDriveTrainRightDriveEncoder);
 	theDriveTrainRightDriveEncoder->SetDistancePerPulse(1.0);
-        theDriveTrainRightDriveEncoder->SetPIDSourceParameter(Encoder::kRate);
+        theDriveTrainRightDriveEncoder->SetPIDSourceParameter(Encoder::kDistance);
         theDriveTrainRightDriveEncoder->Start();
 	throwerArmThrowerMotorOne = new Talon(1, 5);
 	lw->AddActuator("ThrowerArm", "ThrowerMotorOne", (Talon*) throwerArmThrowerMotorOne);
