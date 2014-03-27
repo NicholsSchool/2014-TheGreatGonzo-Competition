@@ -48,7 +48,7 @@ void IntakeArmController::Execute() {
 	// If the intake arm is fully retracted, stop the winch motor. Start roller motor on forward motion.
 	if(Robot::intakeArm->isFullyRetractedBack()){
 		if(arm_control_joystick->GetY() < -0.05){
-			Robot::rollerMotor->rollerMotorIn(-arm_control_joystick->GetY() * 0.9);
+			Robot::rollerMotor->rollerMotorIn(-arm_control_joystick->GetY());
 			Robot::intakeArm->powerWinchMotor(arm_control_joystick->GetY());
 		} else {
 			Robot::intakeArm->stopWinchMotor();
