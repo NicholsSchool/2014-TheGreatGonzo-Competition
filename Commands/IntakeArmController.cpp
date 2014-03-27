@@ -41,7 +41,7 @@ void IntakeArmController::Execute() {
 			Robot::intakeArm->powerWinchMotor(arm_control_joystick->GetY());
 		} else {
 			Robot::intakeArm->stopWinchMotor();
-			Robot::rollerMotor->rollerMotorStop();
+			Robot::rollerMotor->stopRollerMotor();
 		}
 	}
 	

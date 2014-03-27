@@ -31,11 +31,11 @@ bool RollerIn::IsFinished() {
 // Called once after isFinished returns true
 void RollerIn::End() {
 	// This may never fire. But good practice to stop motor here.
-	Robot::rollerMotor->rollerMotorStop();
+	Robot::rollerMotor->stopRollerMotor();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RollerIn::Interrupted() {
 	// Stop the roller motor when this method is called.
-	Robot::rollerMotor->rollerMotorStop();
+	Robot::rollerMotor->stopRollerMotor();
 }
