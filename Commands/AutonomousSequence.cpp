@@ -27,7 +27,7 @@ void AutonomousSequence::Execute() {
 	
 	// drive forward at sixty percent
 	Robot::theDriveTrain->runTankDrive(0.75, 0.75);
-	Wait(4.4);
+	Wait(3.75);
 	Robot::theDriveTrain->stopTankDrive();
 	
 	// roller intake motor out for two seconds
@@ -55,7 +55,7 @@ bool AutonomousSequence::IsFinished() {
 // Called once after isFinished returns true
 void AutonomousSequence::End() {
 	Robot::theDriveTrain->stopTankDrive();
-	Robot::intakeArm->rollerMotorStop();
+	Robot::rollerMotor->stopRollerMotor();
 	Robot::throwerArm->stopThrowerMotors();
 	Robot::theDriveTrain->setSafetyBoolean(true);
 }
@@ -63,7 +63,7 @@ void AutonomousSequence::End() {
 // subsystems is scheduled to run
 void AutonomousSequence::Interrupted() {
 	Robot::theDriveTrain->stopTankDrive();
-	Robot::intakeArm->rollerMotorStop();
+	Robot::rollerMotor->stopRollerMotor();
 	Robot::throwerArm->stopThrowerMotors();
 	Robot::theDriveTrain->setSafetyBoolean(true);
 }
