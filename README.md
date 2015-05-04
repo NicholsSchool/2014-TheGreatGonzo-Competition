@@ -1,3 +1,6 @@
+![status](https://img.shields.io/badge/status-inactive-yellowgreen.svg)
+![version](https://img.shields.io/badge/version-1.0.5-blue.svg)
+
 # 2014 TheGreatGonzo Competition
 
 Nichols FRC Team #4930
